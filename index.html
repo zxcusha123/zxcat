@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV — Maier Arseniy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<main class="cv">
+  <header class="cv__header">
+    <h1>Майер Арсений</h1>
+    <p class="cv__tagline">
+      Студент матобеспечения СПбПУ. Пишу на C/C++, развиваюсь в системной разработке
+    </p>
+    <ul class="cv__contacts">
+      <li><a href="mailto:maier.qwezxc@gmail.com">maier.qwezxc@gmail.com</a></li>
+      <li><a href="https://github.com/zxcusha123">https://github.com/zxcusha123</a></li>
+    </ul>
+
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+      ☀️
+    </button>
+  </header>
+
+  <section>
+    <h2>About</h2>
+    <p>
+      Ценю прагматичный подход к разработке и чистую логику на уровне управления памятью. Недавно реализовал ООП-калькулятор на C++ со сложными алгоритмами принятия решений и настроил пайплайн разработки через Git и CMake. Сейчас нацелен на переход от учебных задач к реальной низкоуровневой или системной разработке.
+    </p>
+  </section>
+
+  <section>
+    <h2>Experience / Projects</h2>
+    <article>
+      <h3>ООП-калькулятор (Курсовой проект)</h3>
+      <p class="cv__meta">Учебный проект СПбПУ · Весна 2026</p>
+      <p>Разработал приложение-калькулятор на C++. Спроектировал архитектуру с использованием классов и реализовал сложные алгоритмы принятия решений. Практиковал принципы объектно-ориентированного программирования и управления памятью.</p>
+    </article>
+
+    <article>
+      <h3>Цикл лабораторных по разработке ПО</h3>
+      <p class="cv__meta">Учебный проект СПбПУ · Весна 2026</p>
+      <p>Выполнил серию из шести проектов, сфокусированных на низкоуровневой разработке (C/C++). Настроил пайплайн сборки с помощью CMake, вел контроль версий через Git (включая работу с ветками и слияниями). Писал код в CLion, тестировал и дебажил сложные вычислительные задачи.</p>
+    </article>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <ul class="cv__skills">
+      <li>C/C++</li>
+      <li>CMake</li>
+      <li>Git</li>
+      <li>HTML</li>
+    </ul>
+  </section>
+</main>
+
+<script type="module" src="src/main.js"></script>
+<img src="./zxc-cat.gif" alt="ZXC Cat" id="zxc-cat" class="hidden-cat">
+</body>
+</html>
