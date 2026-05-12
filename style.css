@@ -1,10 +1,18 @@
-:root {
+@font-face {
+  font-family: 'UnquietSpirits';
+  src: url('./unquietspiritsrusbylyajka.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root, [data-theme='light'] {
   --bg: #fafafa;
   --fg: #111;
   --muted: #666;
   --accent: #0066ff;
   --border: #e5e5e5;
 }
+
 
 [data-theme='dark'] {
   --bg: #0e0e10;
@@ -14,21 +22,48 @@
   --border: #2a2a2e;
 }
 
-* {
-  box-sizing: border-box;
+
+[data-theme='zxc'] {
+  --bg: #0e0e10;      /* Оставляем темный фон */
+  --fg: #ffffff;      /* ОСНОВНОЙ ЦВЕТ ЗАГОЛОВКОВ - БЕЛЫЙ (Максимальный контраст) */
+  --muted: #aaaaaa;   /* Светло-серый для дат и контекста */
+  --accent: #ff6666;  /* Ярко-красный для ссылок и акцентов */
+  --border: #333333;
 }
 
+/* Применяем рваный шрифт и БЕЛЫЙ цвет ТОЛЬКО к заголовкам */
+[data-theme='zxc'] h1,
+[data-theme='zxc'] h2,
+[data-theme='zxc'] h3 {
+  font-family: 'UnquietSpirits', cursive !important;
+  color: var(--fg) !important; /* Заголовки принудительно белые */
+  letter-spacing: 2px;
+  font-weight: normal;
+}
+
+/* Кот появляется ТОЛЬКО в ZXC режиме */
+[data-theme='zxc'] .hidden-cat {
+  display: block;
+  animation: shake 0.5s infinite;
+}
+
+/* Основной текст и списки делаем ЯРКО-КРАСНЫМ для вайба */
+[data-theme='zxc'] p,
+[data-theme='zxc'] ul:not(.cv__contacts) {
+  color: #ffffff; /* Яркий красный, который хорошо виден на черном */
+}
+
+/* Убедимся, что ссылки в контактах тоже красные */
+[data-theme='zxc'] .cv__contacts a {
+  color: var(--accent);
+}
 body {
   margin: 0;
-  font-family:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background: var(--bg);
   color: var(--fg);
   line-height: 1.5;
-  transition:
-    background 0.2s,
-    color 0.2s;
+  transition: background 0.3s, color 0.3s;
 }
 
 .cv {
@@ -81,7 +116,7 @@ body {
   border-radius: 8px;
   padding: 0.4rem 0.7rem;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 section {
@@ -125,3 +160,14 @@ article h3 {
   padding: 0.3rem 0.7rem;
   font-size: 0.9rem;
 }
+
+.hidden-cat {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 180px;
+  pointer-events: none;
+  z-index: 1000;
+}
+

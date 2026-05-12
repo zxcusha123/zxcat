@@ -1,25 +1,25 @@
-// Простой пример "нестандартного элемента": переключатель темы.
-// TODO студент: замени или дополни своим.
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('theme-toggle');
+  const themes = ['light', 'dark', 'zxc'];
+  const icons = { light: '☀️', dark: '🌙', zxc: '🔪' };
 
-const STORAGE_KEY = 'cv-theme';
+  let currentTheme = localStorage.getItem('cv-theme') || 'light';
 
-const getInitialTheme = () => {
-  const saved = localStorage.getItem(STORAGE_KEY);
-  if (saved) return saved;
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light';
-};
+  const applyTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    if (toggleBtn) toggleBtn.textContent = icons[theme];
+    localStorage.setItem('cv-theme', theme);
+  };
 
-const applyTheme = (theme) => {
-  document.documentElement.dataset.theme = theme;
-  localStorage.setItem(STORAGE_KEY, theme);
-};
+  applyTheme(currentTheme);
 
-const toggle = document.getElementById('theme-toggle');
-applyTheme(getInitialTheme());
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const currentIndex = themes.indexOf(currentTheme);
+      const nextIndex = (currentIndex + 1) % themes.length;
+      currentTheme = themes[nextIndex];
 
-toggle?.addEventListener('click', () => {
-  const current = document.documentElement.dataset.theme;
-  applyTheme(current === 'dark' ? 'light' : 'dark');
+      applyTheme(currentTheme);
+    });
+  }
 });
