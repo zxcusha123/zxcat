@@ -17,4 +17,4 @@
 
 ## Live URL
 
-https://github.com/zxcusha123/zxcat
+https://zxcusha123.github.io/zxcat/
